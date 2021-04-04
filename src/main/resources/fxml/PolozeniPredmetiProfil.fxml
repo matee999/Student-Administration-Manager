@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import fxmltableview.*?>
+
+
+<HBox alignment="center" xmlns:fx="http://javafx.com/fxml" fx:controller="student_administration.client.fxmlcontrollers.PolozeniPredmetiProfilController">
+         <GridPane alignment="center" hgap="100" vgap="100">
+	   		<VBox BorderPane.alignment="CENTER">
+	   		<padding>
+				<Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
+	   		</padding>
+	    		<children>
+				<Text fx:id="imePolozeniTf" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+	       			<TableView fx:id="passedSubjectTable" GridPane.columnIndex="0" GridPane.rowIndex="1">
+	       				<columns>
+	            				<TableColumn text="Predmet">
+	         	 					<cellValueFactory><PropertyValueFactory property="subject" />
+	         						</cellValueFactory>
+	           					</TableColumn>
+	            				<TableColumn text="Ocena">
+	             					<cellValueFactory><PropertyValueFactory property="grade" />
+	            					</cellValueFactory>
+	            				</TableColumn>
+								<TableColumn text="Priznat sa drugog fakulteta">
+	         	 					<cellValueFactory><PropertyValueFactory property="fromOtherCollege" />
+	         						</cellValueFactory>
+	           				</TableColumn>
+	       				</columns>
+	      			</TableView>
+	  		</children>
+	  		</VBox>
+	</GridPane>
+</HBox>

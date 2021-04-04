@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c255fba0-fa85-4ec8-abcf-681c5d61f9bb">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="examDate" class="java.util.Date"/>
+	<parameter name="time" class="java.lang.String"/>
+	<parameter name="professorCode" class="java.lang.String"/>
+	<parameter name="professorName" class="java.lang.String"/>
+	<parameter name="group" class="java.lang.String"/>
+	<parameter name="examinationPeriod" class="java.lang.String"/>
+	<parameter name="subject" class="java.lang.String"/>
+	<parameter name="subjectCode" class="java.lang.String"/>
+	<parameter name="schoolYear" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="name" class="java.lang.String"/>
+	<field name="index" class="java.lang.String"/>
+	<field name="points" class="java.lang.Float"/>
+	<field name="grade" class="java.lang.Integer"/>
+	<field name="note" class="java.lang.String"/>
+	<variable name="rBr" class="java.lang.String">
+		<variableExpression><![CDATA[$V{REPORT_COUNT}+"."]]></variableExpression>
+	</variable>
+	<variable name="numberOdRegister" class="java.lang.Float" calculation="Count">
+		<variableExpression><![CDATA[$F{name}]]></variableExpression>
+	</variable>
+	<variable name="oc5" class="java.lang.Float" calculation="Count">
+		<variableExpression><![CDATA[($F{grade}.equals( new java.lang.Integer(5)) ? new Integer(1) : null)]]></variableExpression>
+	</variable>
+	<variable name="oc6" class="java.lang.Float" calculation="Count">
+		<variableExpression><![CDATA[($F{grade}.equals( new java.lang.Integer(6)) ? new Integer(1) : null)]]></variableExpression>
+	</variable>
+	<variable name="oc7" class="java.lang.Float" calculation="Count">
+		<variableExpression><![CDATA[($F{grade}.equals( new java.lang.Integer(7)) ? new Integer(1) : null)]]></variableExpression>
+	</variable>
+	<variable name="oc8" class="java.lang.Float" calculation="Count">
+		<variableExpression><![CDATA[($F{grade}.equals( new java.lang.Integer(8)) ? new Integer(1) : null)]]></variableExpression>
+	</variable>
+	<variable name="oc9" class="java.lang.Float" calculation="Count">
+		<variableExpression><![CDATA[($F{grade}.equals( new java.lang.Integer(9)) ? new Integer(1) : null)]]></variableExpression>
+	</variable>
+	<variable name="oc10" class="java.lang.Float" calculation="Count">
+		<variableExpression><![CDATA[($F{grade}.equals( new java.lang.Integer(10)) ? new Integer(1) : null)]]></variableExpression>
+	</variable>
+	<variable name="prolaznostOc5" class="java.lang.Float">
+		<variableExpression><![CDATA[$V{oc5}/$V{numberOdRegister}*100]]></variableExpression>
+	</variable>
+	<variable name="prolaznostOc5Labela" class="java.lang.String">
+		<variableExpression><![CDATA[$V{prolaznostOc5}+"%"]]></variableExpression>
+	</variable>
+	<variable name="prolaznostOc6" class="java.lang.Float">
+		<variableExpression><![CDATA[$V{oc6}/$V{numberOdRegister}*100]]></variableExpression>
+	</variable>
+	<variable name="prolaznostOc6Labela" class="java.lang.String">
+		<variableExpression><![CDATA[$V{prolaznostOc6} + "%"]]></variableExpression>
+	</variable>
+	<variable name="prolaznostOc7" class="java.lang.Float">
+		<variableExpression><![CDATA[$V{oc7}/$V{numberOdRegister}*100]]></variableExpression>
+	</variable>
+	<variable name="prolaznostOc7Labela" class="java.lang.String">
+		<variableExpression><![CDATA[$V{prolaznostOc7}+ "%"]]></variableExpression>
+	</variable>
+	<variable name="prolaznost" class="java.lang.Float">
+		<variableExpression><![CDATA[100-$V{oc5}]]></variableExpression>
+	</variable>
+	<variable name="prolaznostLabela" class="java.lang.String">
+		<variableExpression><![CDATA["72%"]]></variableExpression>
+	</variable>
+	<variable name="prolaznostOc8" class="java.lang.Float">
+		<variableExpression><![CDATA[$V{oc8}/$V{numberOdRegister}*100]]></variableExpression>
+	</variable>
+	<variable name="prolaznostOc8Labela" class="java.lang.String">
+		<variableExpression><![CDATA[$V{prolaznostOc8}+ "%"]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement x="175" y="20" width="203" height="30" uuid="cb957dfb-ba17-400a-bb7d-979559b50ca1"/>
+				<textElement textAlignment="Center">
+					<font size="22"/>
+				</textElement>
+				<text><![CDATA[IZVESTAJ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="131" y="10" width="290" height="30" uuid="9a42d870-3151-4919-b2db-614b2a7276c5"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[ZAPISNIK O POLAGANJU ISPITA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="470" y="0" width="80" height="20" uuid="581dfa94-3e7e-484a-ba76-e001c0772799"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="130" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="10" y="0" width="380" height="20" uuid="0453a9e8-5054-4491-b10e-dbdbe7309111"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Univerzitet UNION Beograd, Racunarski fakultet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="20" width="540" height="20" backcolor="#918D8D" uuid="e84c0979-1808-4299-9919-3ef74e59eb47"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Naziv studijskog programa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="40" width="100" height="30" backcolor="#918D8D" uuid="39270b75-dc70-499f-ae7e-761b4a85aab9"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Predmet:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="0" width="80" height="20" uuid="3ecec370-5fdf-4a23-9d58-a56742ef3abf"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Skolska godina:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="40" width="100" height="30" backcolor="#918D8D" uuid="55a29aa7-ed1f-45c4-80db-060996182787"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Sifra predmeta:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="70" width="100" height="10" backcolor="#918D8D" uuid="aa4899b1-4807-4dbb-b854-5381a678410e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Sifra nastavnika:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="70" width="220" height="10" backcolor="#918D8D" uuid="32f4ac31-b796-4c37-b540-2891396e30c8"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Ime i prezime nastavnika:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="70" width="80" height="10" backcolor="#918D8D" uuid="ed041cca-c92f-4d43-83de-f14573b836a0"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Grupa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="70" width="140" height="10" backcolor="#918D8D" uuid="f42bad5a-f0d1-4c0c-a0f1-1b91ff8ccc12"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Ispitni rok:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="90" width="40" height="20" backcolor="#918D8D" uuid="662d3d40-e1d6-4ce7-8d37-7bc4ffbe82c0"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font size="7.5"/>
+				</textElement>
+				<text><![CDATA[Datum polaganja:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="90" width="90" height="20" backcolor="#918D8D" uuid="8aa312ec-1931-41ce-bbf0-994f1f11c0b0"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Vreme:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="90" width="220" height="20" backcolor="#918D8D" uuid="bf5f09f0-aafc-4a91-bb37-acb8a856aa02"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[       Sala:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="110" width="30" height="20" backcolor="#918D8D" uuid="3e5de05a-d191-42ab-bfd2-813adc15a3f6"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[R. broj]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="110" width="70" height="20" backcolor="#918D8D" uuid="7f2a4247-5111-4ff0-9761-6eb5cb097a8f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eab49a0b-d762-4fe6-a711-9708a0d660ee"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Index]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="110" width="220" height="20" backcolor="#918D8D" uuid="70cb94ea-83eb-4fd1-bbce-8f6ecb70b206">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a3265ce-9ac7-4bc2-a2e3-1704d59116c7"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Ime i prezime]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="110" width="80" height="20" backcolor="#918D8D" uuid="098adfdf-5648-4212-85f3-437f9e54309c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="14349f71-e7e0-46b9-b7d1-ffbed2554b7d"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Poeni]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="110" width="48" height="20" backcolor="#918D8D" uuid="a9996689-5397-412e-9cd9-6c08be045c01">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d91e314c-754a-4418-b75e-2d36db78a8b1"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Ocena]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="458" y="110" width="92" height="20" backcolor="#918D8D" uuid="7dcc6ae7-4c16-4e56-ac5b-479c19943eda">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3b9a8b21-f34a-47c8-a1bf-408f942223f2"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Napomena]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="90" width="60" height="20" backcolor="#918D8D" uuid="18fe587a-90e5-4eda-a089-54452dd7155d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{examDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="90" width="130" height="20" backcolor="#918D8D" uuid="42c6cdb2-1115-409b-b6d3-6528de2a92ec"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{time}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="80" width="100" height="10" backcolor="#918D8D" uuid="ff3c3f89-4ccf-4ca4-9a94-6f3e53332f21"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{professorCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="80" width="220" height="10" backcolor="#918D8D" uuid="b8b6a5e6-4a80-431c-a55c-900cf0e0566f"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{professorName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="80" width="80" height="10" backcolor="#918D8D" uuid="0d554ff0-f98c-46d0-959f-954e46447663"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{group}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="80" width="140" height="10" backcolor="#918D8D" uuid="1f9b225e-8e62-48a7-8822-151bc473e8f7"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{examinationPeriod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="40" width="220" height="30" backcolor="#918D8D" uuid="71756100-8267-4ff3-951b-2547ca849d28"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{subject}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="40" width="120" height="30" backcolor="#918D8D" uuid="2d326607-ad79-49e2-b087-478be80be752"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{subjectCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="0" width="82" height="20" uuid="2123e797-675d-4cea-b155-672f0241deb9"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{schoolYear}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="30" height="20" uuid="839f8e82-8676-4008-8002-ac09532fbfa6"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{rBr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="0" width="70" height="20" uuid="8db546fe-f868-4647-acf1-83f793cc1b37">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eab49a0b-d762-4fe6-a711-9708a0d660ee"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{index}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="80" height="20" uuid="ea779c1a-ddee-4e08-9e65-e91517d34ec0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="14349f71-e7e0-46b9-b7d1-ffbed2554b7d"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{points}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="0" width="48" height="20" uuid="3044e6bb-e77c-4966-bec2-24272e8710c5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d91e314c-754a-4418-b75e-2d36db78a8b1"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{grade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="458" y="0" width="92" height="20" uuid="8d4bce52-b609-4a1d-8254-5a9b6ad7da4f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3b9a8b21-f34a-47c8-a1bf-408f942223f2"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{note}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="220" height="20" uuid="4f157b77-7a5e-489a-9e7a-c4e9165dd55e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a3265ce-9ac7-4bc2-a2e3-1704d59116c7"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="64" height="20" uuid="e8647bbc-14d9-4ea8-9619-89762668c4d6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Datum:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="10" y="41" width="110" height="1" uuid="0f9cf344-aeaa-4ed9-b29b-e61e7547a448"/>
+			</line>
+			<line>
+				<reportElement x="378" y="41" width="167" height="1" uuid="5cb295cd-d31f-4d6a-9cb6-bafe31179fc5"/>
+			</line>
+			<staticText>
+				<reportElement x="378" y="15" width="90" height="20" uuid="dccb14b5-b245-4f92-a50d-2361f6127c96"/>
+				<text><![CDATA[Potpis ispitivaca:]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="95" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="80" y="20" width="110" height="20" uuid="57d464de-ba5a-4515-948e-b3472d8398d2"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{numberOdRegister}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="0" width="70" height="20" backcolor="#918D8D" uuid="758298ab-9072-4af7-9980-e780abcf7937"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Studenti]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="20" width="70" height="20" backcolor="#918D8D" uuid="b76efe96-fca9-4b22-9329-e1457372a5a5"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Broj]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="110" height="20" backcolor="#918D8D" uuid="bc89578c-94fa-4568-ba20-10500631df18"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Prijavljeni]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="190" y="20" width="110" height="20" uuid="52c812c7-7a5c-490e-99bd-0fa576487aeb"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{numberOdRegister}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="190" y="0" width="110" height="20" backcolor="#918D8D" uuid="f77ce857-6dc6-4f74-8c96-4a61cd6d29e1"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Polagali]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="250" height="10" backcolor="#918D8D" uuid="173d058f-792d-4a1e-a546-919906d30f09"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Sa ocenom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="10" width="50" height="10" backcolor="#918D8D" uuid="ef886850-64f9-4d92-912b-fbf118f881c5"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="10" width="40" height="10" backcolor="#918D8D" uuid="22def3fb-1379-4982-a29a-207f0dd941b6"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="10" width="40" height="10" backcolor="#918D8D" uuid="f4de6dbc-1711-4b94-9390-58d4a006625f"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="10" width="40" height="10" backcolor="#918D8D" uuid="b2320082-c550-4acb-80e9-7074e7ca32ec"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="10" width="40" height="10" backcolor="#918D8D" uuid="b0cf2322-b73c-4541-a1ea-587c15b9cc1c"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[9]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="10" width="40" height="10" backcolor="#918D8D" uuid="d3b9038a-af2a-4ddd-bb03-47e0b5ab42b6"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[10]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="20" width="50" height="20" uuid="ef416da7-40b3-42da-94dc-820018d8b8b5"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{oc5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="20" width="40" height="20" uuid="dfca4e7a-3c91-447a-8a4c-7c18a0b87ac5"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{oc6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="20" width="40" height="20" uuid="d217f3a4-843b-4c05-a7a3-b16edb0a9082"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{oc7}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="20" width="40" height="20" uuid="414e450b-5e27-431c-9e0a-9e5b5c4dab85"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{oc8}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="20" width="40" height="20" uuid="415a4061-caee-42c8-b669-963b277bfeae"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{oc9}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="510" y="20" width="40" height="20" uuid="a3d5d677-67f9-4132-9bc3-2f5f49078851"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{oc10}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="40" width="70" height="20" uuid="b739ba1a-11ea-47aa-b2cb-803e515d1cbd"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Prolaznost na ispitu]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="40" width="50" height="20" uuid="176f1355-6493-494d-a36f-1415a25b7f5f"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{prolaznostOc5Labela}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="40" width="40" height="20" uuid="b424bf67-fa20-4b86-85d0-927fc393d626"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{prolaznostOc6Labela}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="40" width="40" height="20" uuid="281ca50e-1d56-4f9b-af4f-0449c01af181"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{prolaznostOc7Labela}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="40" width="40" height="20" uuid="315e620a-c1df-4ef5-8ee6-a8b141e13d32"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{prolaznostOc8Labela}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="40" width="220" height="20" uuid="8af1e0c2-994d-466f-a711-c29e14d14bb2"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{prolaznostLabela}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

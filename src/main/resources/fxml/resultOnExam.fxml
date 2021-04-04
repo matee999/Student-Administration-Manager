@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="student_administration.client.fxmlcontrollers.ResultOnExamController">
+
+<top>
+	<fx:include source="menuBar.fxml"/>
+</top>
+
+<center>
+	<VBox alignment="center" spacing="8">
+	<Label text="Rezultati po ispitnim rokovima" />
+	<HBox alignment="center" spacing="8">	
+		<ComboBox fx:id="examinationPeriodCb" />
+		<Button text="Generiši" onAction="#handleGenerisiRezultatePoRokovima"/>
+	</HBox>
+	</VBox>
+
+</center>
+
+</BorderPane>

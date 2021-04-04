@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import fxmltableview.*?>
+
+<BorderPane fx:id="menu" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="student_administration.client.fxmlcontrollers.ExamRegisterController">
+
+<top>
+	
+	<fx:include source="menuBar.fxml"/>
+</top>
+<center>
+
+<GridPane alignment="center" hgap="10" vgap="10" >
+   		
+	 <TableView fx:id="studentOnExamTable">
+	       	<columns>
+			<TableColumn text="Indeks">
+	         	 <cellValueFactory><PropertyValueFactory property="index" />
+	         	</cellValueFactory>
+	           	</TableColumn>
+	        	<TableColumn text="Ime">
+	         	 <cellValueFactory><PropertyValueFactory property="name" />
+	         	</cellValueFactory>
+	           	</TableColumn>
+	            <TableColumn text="Prezime">
+	             <cellValueFactory><PropertyValueFactory property="surname" />
+	            </cellValueFactory>
+	            </TableColumn>
+	       </columns>
+	  </TableView>
+	
+
+
+</GridPane>
+
+</center>
+<left>
+	<Button onAction="#createReport" text="Napravi izvestaj"/>	   
+</left>
+
+<bottom>
+			<TableView fx:id="examResultTable">
+	       	<columns>
+			<TableColumn text="Indeks">
+	         	 <cellValueFactory><PropertyValueFactory property="index" />
+	         	</cellValueFactory>
+	           	</TableColumn>
+	        	<TableColumn text="Ocena">
+	         	 <cellValueFactory><PropertyValueFactory property="grade" />
+	         	</cellValueFactory>
+	           	</TableColumn>
+	            <TableColumn text="Broj bodova">
+	             <cellValueFactory><PropertyValueFactory property="examPoints" />
+	            </cellValueFactory>
+	            </TableColumn>
+	       </columns>
+	  </TableView>
+</bottom>
+</BorderPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+
+
+<BorderPane fx:id="mainPane" xmlns:fx="http://javafx.com/fxml" >
+
+<top>
+	<fx:include source="menuBar.fxml"/>
+</top>
+
+<center>
+	<BorderPane> 
+		<center>
+			<fx:include source="ProfessorSearchDataTabPane.fxml"/>
+		</center>
+		
+	</BorderPane>
+	
+</center>
+
+
+</BorderPane>

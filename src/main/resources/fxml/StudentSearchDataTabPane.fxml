@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import fxmltableview.*?>
+
+
+
+
+<TabPane xmlns:fx="http://javafx.com/fxml" fx:controller="student_administration.client.fxmlcontrollers.StudentProfilController">
+         <Tab text="Osnovni podaci">
+         <HBox alignment="center">
+         <GridPane alignment="center" hgap="10" vgap="10">
+	
+		<Label text="Ime" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+		<TextField fx:id="imeTf"  GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+		
+		<Label text="Prezime" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+		<TextField fx:id="prezimeTf"  GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+		
+		<Label text="Srednje ime" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+		<TextField fx:id="srednjeImeTf"  GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+		
+		<Label text="JMBG" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+		<TextField fx:id="jmbgTf"  GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+		
+		<Label text="Datum rođenja" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+		<DatePicker fx:id="datumRodjenjaDp"  GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+		
+		<Label text="Mesto rođenja" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+		<ComboBox fx:id="mestoRodjenjaCb"  GridPane.columnIndex="1" GridPane.rowIndex="5"/>		
+		
+		<Label text="Država rođenja" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+		<ComboBox fx:id="drzavaRodjenjaCb"  GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+		
+		<Label text="Pol" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+		<HBox GridPane.columnIndex="1" GridPane.rowIndex="7">
+			 <fx:define>
+        		<ToggleGroup fx:id="polGroup" />
+   		 	</fx:define>
+		    <RadioButton fx:id="radioButton" text="Muški" toggleGroup="$polGroup">
+		        <HBox.margin>
+		            <Insets right="3.0"/>
+		        </HBox.margin>
+		    </RadioButton>
+		
+		    <RadioButton fx:id="radioButton2" text="Ženski" toggleGroup="$polGroup">
+		        <HBox.margin>
+		            <Insets right="10.0" />
+		        </HBox.margin>
+		    </RadioButton>
+		</HBox>		
+		
+		</GridPane>
+		<GridPane alignment="center" hgap="10" vgap="10">
+		<padding>
+        	<Insets left="40.0" />
+    	</padding> 
+		<Label text="Državljanstvo" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+		<ComboBox fx:id="drzavljanstvoCb"  GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+		
+		<Label text="Nacionalnost" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+		<TextField fx:id="nacionalnostTf"  GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+		<Label text="Broj licne karte" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+		<TextField fx:id="brojLicneKarteTf" GridPane.halignment="RIGHT"  GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+		<Label text="Izdata od" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+		<TextField fx:id="licnuKartuIzdaoTf"  GridPane.columnIndex="1" GridPane.rowIndex="3"/>	
+		</GridPane>
+		</HBox>
+		
+		
+         </Tab>
+
+         <Tab text="Kontakt podaci">
+         <HBox alignment="center">
+         <GridPane alignment="center" hgap="10" vgap="10">
+         	<Label text="Emejl" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+		   	<TextField fx:id="emailTf"  GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+		   	<Label text="Broj telefona" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+		   	<TextField fx:id="brojTelefonaTf"   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+		   	<Label text="Adresa prebivališta" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+		   	<TextField fx:id="adresaPrebivalistaTf" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+		   	<Label text="Mesto prebivališta" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+		   	<ComboBox fx:id="mestoPrebivalistaCb" GridPane.columnIndex="1" GridPane.rowIndex="3"/>		   	
+		  </GridPane>		 
+		  
+		  <GridPane  alignment="center" hgap="10" vgap="10"> 	
+		  	<padding>
+        		<Insets left="40.0" />
+    		</padding> 
+		   	<Label text="Adresa stanovanja" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+		   	<TextField fx:id="adresaStanovanjaTf"   GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+		   	<Label text="Mesto stanovanja" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+		   	<ComboBox fx:id="mestoStanovanjaCb"  GridPane.columnIndex="1" GridPane.rowIndex="1"/>		   	
+		 </GridPane>
+		 </HBox>  	
+		   	
+         </Tab>         
+        
+         
+
+	<Tab text="Polozeni predmeti">
+    	<fx:include source="PolozeniPredmetiProfil.fxml"/>	     	  		   	
+    </Tab>
+
+	<Tab text="Predmeti koje slusa">
+         <fx:include source="ListenSubject.fxml"/>
+		   	
+     </Tab>
+
+	<Tab text="Tok studija-AKTIVNOSTI">
+         <fx:include source="Activity.fxml"/>
+         </Tab>
+
+	<Tab text="Upis godine">
+         <fx:include source="UpisGodineTab.fxml"/>	  			   	
+    </Tab>  
+
+	<Tab text="Obnova godine">
+         <fx:include source="ObnovaGodineTab.fxml"/>		  	
+		   	
+         </Tab>
+         <Tab text="Promena indeksa">
+         		<HBox alignment="center">
+         			<GridPane alignment="center" hgap="10" vgap="10">
+         				<Label text="Novi broj indeksa" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+		   				<TextField fx:id="brojIndeksaTf"  GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+		   				<Label text="Smer" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+		   				<ComboBox fx:id="departmentCbIndex"  GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+		   				<Button onAction= "#changeIndex" text="Sačuvaj" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+		        		<Text text="                                " fx:id="actionTarget" GridPane.columnIndex="0" GridPane.rowIndex="4"/>		   	
+		 			 </GridPane>		   
+				</HBox>  	
+		 </Tab> 
+ </TabPane>

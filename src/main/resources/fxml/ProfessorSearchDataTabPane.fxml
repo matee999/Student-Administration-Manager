@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import fxmltableview.*?>
+
+
+
+
+<TabPane xmlns:fx="http://javafx.com/fxml" fx:controller="student_administration.client.fxmlcontrollers.ProfessorProfilController">
+         <Tab text="Osnovni podaci">
+         		<GridPane alignment="center" hgap="10" vgap="10">
+	
+				<Label text="Ime" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+				<TextField fx:id="imeTf"  GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+		
+				<Label text="Prezime" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+				<TextField fx:id="prezimeTf"  GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+		
+				<Label text="Srednje ime" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+				<TextField fx:id="srednjeImeTf"  GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+		
+				<Label text="Email" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+				<TextField fx:id="emailTf"  GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+			</GridPane>
+         </Tab>
+	<Tab text="Drzi predmete">
+         	<fx:include source="HoldSubjectProfessor.fxml"/>		  	
+	</Tab>
+                  	   	
+          
+ </TabPane>

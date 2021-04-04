@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="menu" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="student_administration.client.fxmlcontrollers.MenuBarController">   
+        <MenuBar fx:id="menuBar" style="-fx-background-color: #ADD8E6;">
+            <Menu text="Pretraži">
+                <items>
+                    <MenuItem text="Studenti" onAction="#openStudentSearch"/>                
+                    <MenuItem text="Nastavnici" onAction="#openProfessorSearch"/>                               
+                </items>                           
+            </Menu>
+            <Menu text="Novi">
+                <items>
+                    <MenuItem text="Student" onAction="#openNewStudent"/>               
+                    <MenuItem text="Nastavnik" onAction="#openNewProfessor"/>                
+                    <MenuItem text="Predmet" onAction="#openNewSubject"/>
+                </items>                          
+            </Menu>
+            <Menu text="Administracija">
+                <items>
+                    <MenuItem text="Studijski programi" onAction="#openDepartment"/>              
+                    <MenuItem text="Školska godina" onAction="#openSchoolYear"/>               
+                    <MenuItem text="Ispitni rokovi" onAction="#openExaminationPeriod"/> 
+                    <MenuItem text="Predmeti" onAction="#openSubject"/> 
+                    <MenuItem text="Import" onAction="#openImport" />
+                </items>                          
+            </Menu>
+            <Menu text="Izvestaji">
+                <items>
+                    <MenuItem text="Rezultati ispita" onAction="#openResultOnExam"/>               
+                </items>                          
+            </Menu>
+        </MenuBar>    
+    
+</VBox>
